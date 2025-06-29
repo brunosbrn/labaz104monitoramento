@@ -248,7 +248,7 @@ Agora, vamos criar uma **regra de alerta** que será acionada quando uma **máqu
 
    - **Nome do grupo de ações**: `Alert the operations teams`
    - **Região**: mesma da VM (ex: East US)
-   - **Nome da ação**: `VM foi deletada`
+   - **Nome da ação**: `VM deletada`
 
 3. Em **Tipo de notificação**, clique em **“Email/SMS message/Push/Voice”**
 4. Em **Detalhes do receptor**:
@@ -274,6 +274,42 @@ Agora, vamos criar uma **regra de alerta** que será acionada quando uma **máqu
 2. Clique em **“Criar alerta”**
 
 > ✅ O Azure Monitor agora está configurado para monitorar e alertar sobre a exclusão da VM.
+
+---
+
+## 🔍 Etapa 10 – Validar o Alerta de Exclusão de VM
+
+Nesta etapa, vamos **testar e validar** se a regra de alerta criada na etapa anterior está funcionando corretamente.
+
+### 10.1 Excluir a Máquina Virtual
+
+1. Acesse o [Portal do Azure](https://portal.azure.com)
+2. No menu lateral, vá até **“Máquinas Virtuais”**
+3. Selecione a VM **az104-vm1**
+4. Clique em **“Excluir”** no menu superior
+5. Confirme a exclusão da VM digitando o nome, se solicitado
+
+> ⚠️ Esta ação é **irreversível** — certifique-se de que a VM pode ser descartada.
+
+---
+
+### 10.2 Verificar o Alerta Gerado
+
+1. Após alguns minutos, acesse o serviço **Monitor**
+2. Vá até **“Alertas”** no menu lateral
+3. Você deverá ver um alerta com:
+   - **Nome**: `Alerta de exclusão de VM`
+   - **Gravidade**: 1 (alta)
+   - **Status**: Ativo ou Resolvido
+   - **Grupo de ações acionado**: `Alert the operations teams`
+
+4. Caso tenha configurado corretamente as notificações, você também deverá ter recebido um:
+   - E-mail
+   - SMS
+   - Notificação push (se configurado)
+   - Ligação de voz (opcional)
+
+> ✅ Se o alerta foi disparado e a notificação recebida, a configuração está funcionando como esperado.
 
 ---
 
